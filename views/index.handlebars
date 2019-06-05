@@ -1,7 +1,22 @@
 <div class="container-fluid">
     {{#if articles}}
 
-        {{> allarticles }}
+        <div class="row">
+            {{#each articles}}
+                <div class="card" style="width: 18rem;">
+                    <img src="{{_doc.imgSrc}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h6 class="card-subtitle mb-2 text-muted">{{_doc.author}}</h6>
+                        <p class="card-text">{{_doc.title}}</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-success">Comment</a>
+                        <a href="{{_doc.link}}" class="btn btn-primary">View Article</a>
+
+                    </div>
+                </div>
+            {{/each}}
+        </div>
 
     {{else}}
 

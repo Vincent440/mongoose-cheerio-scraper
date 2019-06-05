@@ -11,8 +11,10 @@ const db = require("../models");
 // File to display handlebars html pages and make database queries on each page load
 
 router.get("/", (req, res) =>{
-  db.Article.find({}).then( allArticles => res.render( "index" , { allArticles } ))
-    .catch(function(err) {
+  db.Article.find({}).then( articles =>{
+    debugger;
+    res.render( "index" ,{ articles })
+  }).catch(function(err) {
       // If an error occurred, send it to the client
     res.json(err);
   });
