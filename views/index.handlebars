@@ -1,6 +1,11 @@
+<div class="container-fluid">
+    {{#if articles}}
 
-{{#unless articles}}
+        {{> allarticles }}
 
-    {{> noarticles}}
-    
-{{/unless}}
+    {{else}}
+
+        {{> noarticles}}
+        
+    {{/if}}
+</div>

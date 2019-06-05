@@ -18,8 +18,8 @@ app.use(express.static("public"));
 
 const PORT = process.env.PORT || 3000;
 
-// If deployed, use the deployed database. Otherwise use the local codescraperDb database
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/codescraperDb";
+// If deployed, use the deployed database. Otherwise use the local techscraperDb database
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/techscraperDb";
 
 // Connect to the Mongo DB
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true });

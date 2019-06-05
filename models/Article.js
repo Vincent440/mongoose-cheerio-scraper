@@ -15,6 +15,10 @@ const ArticleSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  author: {
+    type: String,
+    required: true
+  },
   //Img source to have a small image of the article in a card, instead of a summary
   imgSrc: {
     type: String,
