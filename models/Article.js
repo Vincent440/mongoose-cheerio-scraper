@@ -15,7 +15,7 @@ const ArticleSchema = new Schema({
     type: String,
     required: true
   },
-  //Img source to have a small image of the article since I don't have access to a summary
+  //Img source to have a small image of the article in a card, instead of a summary
   imgSrc: {
     type: String,
     required: true

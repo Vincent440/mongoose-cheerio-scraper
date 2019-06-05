@@ -3,11 +3,14 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
+const logger = require("morgan");
 
-var exphbs = require("express-handlebars");
+const exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
+// Use morgan logger for logging requests
+app.use(logger("dev"));
 // Parse request body as JSON
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
