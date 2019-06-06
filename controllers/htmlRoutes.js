@@ -14,9 +14,8 @@ router.get("/", (req, res) =>{
   db.Article.find({}).then( articles =>{
     debugger;
     res.render( "index" ,{ articles })
-  }).catch(function(err) {
-      // If an error occurred, send it to the client
-    res.json(err);
+  }).catch((err) => {
+    res.status(404).json(err);
   });
 });
 
@@ -41,7 +40,11 @@ router.get("/scrape", (req, res)=> {
       if (result.imgSrc.startsWith("/")) {
         result.imgSrc = "https://www.freecodecamp.org" + result.imgSrc;
       }
-      console.log(`\nArticle Title: ${result.title} Article Author: ${result.author} Article Link: ${result.link} Article imgSrc: ${result.imgSrc}\n`);
+      console.log(`\n
+       Article Title: ${result.title}
+       Article Author: ${result.author}
+       Article Link: ${result.link}
+       Article imgSrc: ${result.imgSrc}\n`);
       db.Article.create(result).then(dbArticle => console.log(dbArticle)).catch(err => console.log(err));
     });      
     // after scrape take to the view articles without comments page.
