@@ -1,0 +1,30 @@
+<div class="modal fade" id="comment-modal" tabindex="-1" role="dialog" aria-labelledby="comment-modal-label" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable modal-dialog-centered" role="document">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="comment-modal-label">Article Title:</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" title="Close modal">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div id="comment-alert" class="alert alert-warning p-2 m-0 d-none" role="alert">
+          Comment can't be empty
+        </div>
+        <form>
+          <div class="form-group">
+            <label for="comment-text" class="col-form-label font-weight-bold">New Comment:</label>
+            <textarea class="form-control" id="comment-text" placeholder="What a great article, I will recommend it!"></textarea>
+          </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" title="Cancel">Close</button>
+        <button type="submit" id="commentBtn" class="btn btn-primary" title="Creates a new comment on this article">Comment</button>
+      </div>
+
+    </div>
+  </div>
+</div>

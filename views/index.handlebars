@@ -11,7 +11,7 @@
                     <div class="card-body p-2">
                         <h6 class="card-title m-0">{{author}}</h6>
                         
-                        <p class="card-text">{{title}}</p>
+                        <p class="card-text p-1 mb-1">{{title}}</p>
 
 
                     </div>
@@ -23,8 +23,8 @@
             {{/each}}
         </div>
         
-        {{!-- leave a comment modal --}}
-        {{> comment-modal}}
+        {{!--place new comment modal --}}
+        {{> new-comment-modal}}
 
         {{!-- View all comments on article modal --}}
         {{> article-comments-modal}}

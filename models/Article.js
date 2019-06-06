@@ -2,15 +2,12 @@ const mongoose = require("mongoose");
 
 mongoose.set('useCreateIndex', true);
 
-// Using the mongoose.Schema constructor, create a new ArticleSchema object
 const ArticleSchema = new mongoose.Schema({
-  // `title`  (or Headline) is required, type String
   title: {
     type: String,
     required: true,
     unique: true
   },
-  // `link` is required, type String
   link: {
     type: String,
     required: true
@@ -19,19 +16,19 @@ const ArticleSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  hasCommment:{
+  hasCommment:{//this will be to only display the articles which have at least one comment
     type: Boolean,
     default:false
   },
-  //Img source to have a small image of the article in a card, instead of a summary
   imgSrc: {
     type: String,
     required: true
   },
+  commentIds: [{//This is to store multiple comments per article. 
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Comment"
+  }]
 });
-
-// This creates our model from the above schema, using mongoose's model method
 const Article = mongoose.model("Article", ArticleSchema);
 
-// Export the Article model
 module.exports = Article;
