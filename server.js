@@ -24,9 +24,9 @@ const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/techscraperD
 // Connect to the Mongo DB
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
-// Routes
-// const apiRoutes = require("./controllers/apiRoutes.js");
-// app.use(apiRoutes);
+// HTML & API Routes
+const apiRoutes = require("./controllers/apiRoutes.js");
+app.use(apiRoutes);
 
 const htmlRoutes = require("./controllers/htmlRoutes.js");
 app.use(htmlRoutes);

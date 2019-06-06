@@ -5,13 +5,13 @@
   <span class="navbar-brand mb-0 h1"> Web Scraper</span>
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="/">All Articles <i class="fas fa-newspaper"></i></a>
+      <li id="all-nav" class="nav-item active">
+        <a class="nav-link" href="/" title="View all scraped articles"><i class="fas fa-newspaper"> All Articles</i></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/">Comments <i class="fas fa-comments"></i></a>
-      </li>
+      {{!-- <li id="comment-nav"  class="nav-item">
+        <a class="nav-link" title="View all articles that have comments on them." href="/commented"><i class="fas fa-comments"> Commented Articles</i></a>
+      </li> --}}
     </ul>
   </div>
-  <a class="btn btn-outline-light get-articles" href="/scrape"><i class="fas fa-microchip"> Get New Articles</i> <i class="fas fa-newspaper"></i></a>
+  <a class="btn btn-outline-light get-articles" href="/scrape" title="Scrapes any new articles from freecodecamp.com"><i class="fas fa-microchip"> Get New Articles</i> <i class="fas fa-newspaper"></i></a>
 </nav>

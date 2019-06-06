@@ -12,12 +12,20 @@ const db = require("../models");
 
 router.get("/", (req, res) =>{
   db.Article.find({}).then( articles =>{
-    debugger;
     res.render( "index" ,{ articles })
   }).catch((err) => {
     res.status(404).json(err);
   });
 });
+
+router.get("/commented", (req, res) =>{
+  db.Article.find({hasComment:true})
+  .populate("comment")
+  .then( articles =>{
+    res.render( "commented-articles" ,{ articles })
+  }).catch(err => res.status(404).json(err));
+});
+
 
 // A GET route for scraping the News website
 router.get("/scrape", (req, res)=> {

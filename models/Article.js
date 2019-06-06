@@ -19,6 +19,10 @@ const ArticleSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  hasCommment:{
+    type: Boolean,
+    default:false
+  },
   //Img source to have a small image of the article in a card, instead of a summary
   imgSrc: {
     type: String,
