@@ -48,6 +48,14 @@ router.delete("/api/article/delete/comment/:id", (req, res) => {
   }).catch(err => res.status(500).json(err));
 
 });
-//
+
+// Delete everything route
+router.delete("/api/article/delete/all", (req, res) => {
+  db.Article.deleteMany({})
+      .then(() => db.Comment.deleteMany({}))
+      .then(() => res.status(200).send("success"))
+      .catch(() => res.status(500));
+});
+
 //Export the routes
 module.exports = router;
