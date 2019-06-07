@@ -6,42 +6,48 @@ const router = express.Router();
 const db = require("../models/index.js");
 
 // API route to populate the comment modal with all comments when a user clicks on the comment button on an article. 
-router.get("/api/article/comments/:id", (req, res) => {
+router.get("/api/article/get/all/comments/:id", (req, res) => {
 
-  db.Article.findOne({_id:req.params.id , hasComment:true})
+  db.Article.findOne({_id:req.params.id, comments: { $exists: true , $not: { $size:0 }}},"comments")
+    .populate("comments")
     .then(articleToComment => {
-
-      console.log(articleToComment);
-
-      if(articleToComment === null){
-        res.status(404).end();
+      if(!articleToComment){
+        res.status(404).send("No Comments for this article!");
       }
       else {
-        res.status(200).json(articleToComment).end();
+        res.status(200).json(articleToComment);
       }
-    }).catch(err => res.status(404).json(err).end());
+    }).catch(err => res.status(500).json(err));
 });
 
 router.post("/api/article/create/comment/:id", (req, res) => {
-  // console.log(req.params.id);
-  // console.log(req.body.text);
 
   db.Comment.create(req.body).then(dbComment => {
-
-    console.log(dbComment);
-    // after creating the new comment, Update the article using the ID for the where claus
-    // Update hasComment: true, and add the comment._id to the commentId array I have in my article Model
-    //has comment is so we can only display the commented articles to commented articles page
-    db.Article.findOneAndUpdate({ _id : req.params.id }, { hasComment : true , commentIds : dbComment._id }, { new: true }).then((article)=>{
-      console.log(article)
-      res.status(200).json(article).end();
+    // create new comment, then take that comments ID
+    // push the ID to the article comments array it is attached to. 
+    db.Article.findOneAndUpdate({ _id : req.params.id }, { $push: { comments : dbComment._id }}, { new: true }).then((article)=>{
+      res.status(200).json(article);
     }).catch((err)=>{
       if (err) throw err;
-    })
+      res.status(404).send("Error updating article with comment.");
+    });
 
-  }).catch(err => res.status(404).json(err).end());
-
+  }).catch(err => res.status(500).json(err));
 });
 
+router.delete("/api/article/delete/comment/:id", (req, res) => {
+  db.Comment.findByIdAndDelete(req.body)
+  .then(deletedComment => {
+    db.Article.findByIdAndUpdate(req.params.id, { $pull: { comments : deletedComment.id }}, { new: true }).then((article)=>{
+      res.status(200).json(article);
+    }).catch((err)=>{
+      if (err) throw err;
+      res.status(404).send("Error updating article with comment.");
+    });
+
+  }).catch(err => res.status(500).json(err));
+
+});
+//
 //Export the routes
 module.exports = router;

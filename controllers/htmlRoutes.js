@@ -6,23 +6,22 @@ const axios = require("axios");
 const cheerio = require("cheerio");
 const db = require("../models/index.js");
 
-// File to display handlebars html pages and make database queries on each page load
-
-
 router.get("/", (req, res) =>{
-  db.Article.find({}).then( articles =>{
+  db.Article.find({})
+  .populate("comments")
+  .then( articles => {
     res.render( "index" ,{ articles })
   }).catch((err) => {
-    res.status(404).json(err);
+    res.status(500).json(err);
   });
 });
 
 router.get("/commented", (req, res) =>{
-  db.Article.find({ hasComment: true })
-  .populate("Comment")
-  .then( articles =>{
-    res.render( "commented-articles" ,{ articles })
-  }).catch(err => res.status(404).json(err));
+  db.Article.find({ comments: { $exists: true , $not: { $size:0 }}})
+  .populate("comments")
+  .then( commentedArticle =>{
+    res.render( "commented-articles" ,{ commentedArticle })
+  }).catch(err => res.status(500).json(err));
 
 });
 
@@ -45,7 +44,7 @@ router.get("/scrape", (req, res)=> {
       if (result.imgSrc.startsWith("/")) {
         result.imgSrc = "https://www.freecodecamp.org" + result.imgSrc;
       }
-      db.Article.create(result).then(dbArticle => console.log(dbArticle)).catch(err => console.log(err));
+      db.Article.create(result).then(articleDoc => console.log(articleDoc)).catch(err => console.log(err));
     });      
     // after scrape take to the view articles without comments page.
     res.redirect("/");

@@ -6,25 +6,25 @@ const ArticleSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true,
+    trim: true,
     unique: true
   },
   link: {
     type: String,
+    trim: true,
     required: true
   },
   author: {
     type: String,
+    trim: true,
     required: true
-  },
-  hasCommment:{//this will be to only display the articles which have at least one comment
-    type: Boolean,
-    default:false
-  },
+  },//this will be to only display the articles which have at least one comment 
   imgSrc: {
     type: String,
+    trim: true,
     required: true
   },
-  commentIds: [{//This is to store multiple comments per article. 
+  comments: [{//This is to store multiple comments per article. 
     type: mongoose.Schema.Types.ObjectId,
     ref: "Comment"
   }]

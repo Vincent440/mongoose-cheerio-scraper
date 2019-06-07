@@ -1,36 +1,32 @@
 {{!-- Page to display all articles, or a message that states there are none --}}
 <div class="container-fluid">
     {{#if articles}}
-
-        <div class="d-flex flex-wrap">
+        <div class="row no-gutters mx-auto">
             {{#each articles}}
-                <div class="card m-auto col-sm-6 col-md-4 col-lg-3">
+                <div class="card mx-auto col-sm-6 col-lg-4 col-xl-3">
                     <a class="nav-link" href="{{link}}" title="Link to article: {{link}}">
                     <img src="{{imgSrc}}" class="card-img-top" alt="Article image from Free Code Camp">
                     <small class="card-subtitle mt-1 m-0 text-muted">Click to view article.</small></a>
                     <div class="card-body p-2">
                         <h6 class="card-title m-0">{{author}}</h6>
-                        
                         <p class="card-text p-1 mb-1">{{title}}</p>
-
-
                     </div>
-                    <div class="btn-group p-0 m-0" role="group">
-                        <button type="button" class="btn btn-success" title="Create a new comment for {{title}}" data-toggle="modal" data-target="#comment-modal" data-title="{{title}}" data-articleid="{{id}}"><i class="fas fa-comments"> Comment</i></button>
-                        <button type="button" class="btn btn-success" title="View all comments for {{title}}" data-toggle="modal" data-target="#view-comments-modal" data-title="{{title}}" data-articleid="{{id}}">View Comments</button>
+                    <div class="btn-group p-1 m-0" role="group">
+                        <button type="button" class="btn btn-sm btn-success" title="Comment on {{title}}" data-toggle="modal" data-target="#comment-modal" data-title="{{title}}" data-articleid="{{id}}"><i class="fas fa-comments"> New Comment</i></button>
+                        {{#if comments}}
+                            <button type="button" class="btn btn-sm btn-success" title="View comments for {{title}}" data-toggle="modal" data-target="#view-comments-modal" data-title="{{title}}" data-articleid="{{id}}">
+                                <i class="fas fa-eye"> Comments</i> <span class="badge badge-primary">{{comments.length}}</span>
+                            </button>
+                        {{/if}}
                     </div>
                 </div>
             {{/each}}
         </div>
-        
         {{!--place new comment modal --}}
         {{> new-comment-modal}}
-
-        {{!-- View all comments on article modal --}}
+        {{!-- View all comments on specific articles, and allows for deletion, no editing --}}
         {{> article-comments-modal}}
-
     {{else}}
         {{> noarticles}}
     {{/if}}
-    
 </div>
