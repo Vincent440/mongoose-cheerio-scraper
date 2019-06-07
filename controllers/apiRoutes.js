@@ -31,6 +31,7 @@ router.post("/api/article/create/comment/:id", (req, res) => {
     console.log(dbComment);
     // after creating the new comment, Update the article using the ID for the where claus
     // Update hasComment: true, and add the comment._id to the commentId array I have in my article Model
+    //has comment is so we can only display the commented articles to commented articles page
     db.Article.findOneAndUpdate({ _id : req.params.id }, { hasComment : true , commentIds : dbComment._id }, { new: true }).then((article)=>{
       console.log(article)
       res.status(200).json(article).end();
