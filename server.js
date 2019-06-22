@@ -22,7 +22,9 @@ const PORT = process.env.PORT || 3000;
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/techscraperDb";
 
 // Connect to the Mongo DB
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useFindAndModify: false  });
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useFindAndModify: false  },error=>{
+  console.log( error ? error : "Mongoose connected to the DB successfully!");
+});
 
 // HTML & API Routes
 const apiRoutes = require("./controllers/apiRoutes.js");
