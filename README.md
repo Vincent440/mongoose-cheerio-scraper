@@ -1,6 +1,6 @@
 # mongoose-cheerio-scraper
 
-Live application -> [Tech News Scraper](https://secret-atoll-83145.herokuapp.com/)
+View live page here: [Tech News Scraper](https://cheerio-web-scraper.herokuapp.com)
 
 Web app that lets users view and leave comments on the latest tech news. Using Mongoose and Cheerio to scrape news from another site.
 Saves the articles and Comments to a MongoDB Database, Using mongoose to link the comments to the article they are attached to.
@@ -17,18 +17,25 @@ a user can:
 
 ---
 
-This app was expecially tricky since I had not been familiar with NoSQL/ MongoDB.
-
 The commented articles page checks if the comments array on the article model has anything stored and only displays if there is an article that has at least one comment on it,
 
 Otherwise it displays a message stating no articles to display.
 
 Comments are linked to the articles through an array of comments which stores all of the commentIDS of the comments for that specific article in the article model. 
 
-#### By Vince Shury
+*This app was difficult because at the time of creating it I was completely new to NoSQL/MongoDB.*
 
-Thanks again for viewing my repository.
+---
 
-If you like this application please check out my [Github Profile](https://github.com/Vincent440) to see my other repositories.
+## By **Vincent Shury**
+#### _Full Stack Web Developer_
 
-Don't forget to view my [Github Portfolio page](https://vincent440.github.io/) well you are there Thanks!
+---
+Thanks for viewing my repository.
+
+Contact me here: 
+* [Vincent Shury LinkedIn Profile](https://www.linkedin.com/in/vincent-shury/)
+
+View more of my work:
+* [Github Profile](https://github.com/Vincent440)
+* [Portfolio page](https://vincent440.github.io/) 
