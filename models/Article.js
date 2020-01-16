@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose')
 
-mongoose.set('useCreateIndex', true);
+mongoose.set('useCreateIndex', true)
 
 const ArticleSchema = new mongoose.Schema({
   title: {
@@ -18,17 +18,17 @@ const ArticleSchema = new mongoose.Schema({
     type: String,
     trim: true,
     required: true
-  },//this will be to only display the articles which have at least one comment 
+  }, // this will be to only display the articles which have at least one comment
   imgSrc: {
     type: String,
     trim: true,
     required: true
   },
-  comments: [{//This is to store multiple comments per article. 
+  comments: [{ // This is to store multiple comments per article.
     type: mongoose.Schema.Types.ObjectId,
-    ref: "Comment"
+    ref: 'Comment'
   }]
-});
-const Article = mongoose.model("Article", ArticleSchema);
+})
+const Article = mongoose.model('Article', ArticleSchema)
 
-module.exports = Article;
+module.exports = Article
