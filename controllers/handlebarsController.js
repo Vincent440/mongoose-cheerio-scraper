@@ -6,6 +6,7 @@ const db = require('../models/index.js')
 module.exports = {
   findAllArticles: (req, res) => {
     db.Article.find({})
+      .lean()
       .populate('comments')
       .then(articles => {
         res.render('index', { articles })
@@ -15,6 +16,7 @@ module.exports = {
   },
   getCommentedArticles: (req, res) => {
     db.Article.find({ comments: { $exists: true, $not: { $size: 0 } } })
+      .lean()
       .populate('comments')
       .then(commentedArticle => {
         res.render('commented-articles', { commentedArticle })
@@ -22,6 +24,7 @@ module.exports = {
   },
   scrapeFreeCodeCampe: (req, res) => {
     axios.get('https://www.freecodecamp.org/news/').then(response => {
+      // console.log(response.data)
       const $ = cheerio.load(response.data)
       $('div.post-feed article.post-card').each((i, element) => {
         const result = {}
