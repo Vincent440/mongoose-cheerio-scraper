@@ -1,20 +1,23 @@
 {{!-- Page to display all articles, or a Message with button to scrape articles --}}
-{{> jumbotron}}
+
     
 {{> navbar}}
 <div class="container-fluid">
     {{#if articles}}
-        <div class="row no-gutters mx-auto">
+        {{> jumbotron}}
+        <div class="row mx-auto">
             {{#each articles}}
                 <div class="card mx-auto col-sm-6 col-lg-4 col-xl-3">
                     <a class="nav-link" href="{{link}}" title="Link to article: {{link}}">
                     <img src="{{imgSrc}}" class="card-img-top" alt="Image for {{title}}">
                     <small class="card-subtitle mt-1 m-0 text-muted">Click to view article.</small></a>
-                    <div class="card-body p-2">
-                        <h6 class="card-title m-0">{{author}}</h6>
-                        <p class="card-text p-1 mb-1">{{title}}</p>
+                    <div class="card-body border-bottom">
+                        <h3>{{title}}</h3>
+                        <p class="card-text">
+                            Author: <span class="font-weight-bolder">{{author}}</span>
+                        </p>
                     </div>
-                    <div class="btn-group p-1 m-0" role="group">
+                    <div class="btn-group p-2" role="group">
                         <button type="button" class="btn btn-sm btn-success" title="Comment on {{title}}" data-toggle="modal" data-target="#comment-modal" data-title="{{title}}" data-articleid="{{_id}}"><i class="fas fa-comments"> New Comment</i></button>
                         {{#if comments}}
                             <button type="button" class="btn btn-sm btn-success" title="View comments for {{title}}" data-toggle="modal" data-target="#view-comments-modal" data-title="{{title}}" data-articleid="{{_id}}">

@@ -6,24 +6,25 @@
     {{#if commentedArticle}}
         <div class="row mx-auto">
             {{#each commentedArticle}}
-                <div class="card mx-auto col-sm-6 col-md-4 col-lg-3">
+                <div class="card col-sm-6 col-md-4 col-lg-3">
 
                     <a class="nav-link" href="{{link}}" title="Link to article: {{link}}">
                     <img src="{{imgSrc}}" class="card-img-top" alt="Image for {{title}}">
                     <small class="card-subtitle mt-1 m-0 text-muted">Click to view article.</small></a>
 
-                    <div class="card-body px-0 mx-0">
+                    <div class="card-body mx-0">
 
-                        <h6 class="card-title m-0">{{author}}</h6>
-                        <p class="card-text">{{title}}</p>
-
+                        <h3>{{title}}</h3>
+                        <p class="card-text py-3 border-bottom">Author: <span class="font-weight-bolder">{{author}}</span></p>
                         <div id="card-comments">
                             {{#if comments}}
                                 <ul class="m-0 px-1">
                                     {{#each comments}}
                                         <li>
                                             <p title="Click the trash icon to delete comment.">
-                                                <button type="button" data-commentid="{{_id}}" data-articleid="{{../_id}}" title="Delete comment" class="badge badge-danger delete-comment"><i class="fas fa-trash-alt"></i></button>
+                                                <button type="button" data-commentid="{{_id}}" data-articleid="{{../_id}}" title="Delete comment" class="badge badge-danger delete-comment">
+                                                    <i class="fas fa-trash-alt"></i>
+                                                </button>
                                                 {{text}}
                                             </p>
                                         </li>
@@ -45,10 +46,8 @@
         </div>
     {{/if}}
 </div>
-
     {{!--place new comment modal --}}
     {{> new-comment-modal}}
-
 <script>
     // JS to remove class from nav only on the commented page, and apply the active class to the correct nav.
     $(()=> {

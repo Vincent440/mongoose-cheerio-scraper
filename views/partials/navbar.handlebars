@@ -1,9 +1,11 @@
-<nav class="navbar sticky-top navbar-expand-md navbar-dark bg-dark py-0 mb-3">
+<nav class="navbar sticky-top navbar-expand-md navbar-dark bg-dark mb-3">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <span class="navbar-brand mb-0 h1"><button id="wipe-all" title="Warning clears the Database of all Articles/Comments" class="badge badge-dark badge-sm"><i class="fas fa-broom"></i></button> Web Scraper</span>
   <div class="collapse navbar-collapse" id="navbarText">
+    <span class="navbar-brand">
+       Web Scraper
+    </span>
     <ul class="navbar-nav mr-auto">
       <li id="all-nav" class="nav-item active">
         <a class="nav-link" href="/" title="View all scraped articles"><i class="fas fa-newspaper"> All Articles</i></a>
@@ -13,5 +15,10 @@
       </li> 
     </ul>
   </div>
-  <a class="btn btn-outline-light get-articles" href="/scrape" title="Scrapes any new articles from freecodecamp.com"><i class="fas fa-microchip"> Get New Articles</i> <i class="fas fa-newspaper"></i></a>
+  <a class="btn btn-outline-light get-articles" href="/scrape" title="Scrapes any new articles from freecodecamp.com">
+    Get New Articles <i class="fas fa-newspaper"></i>
+  </a>
+  <button id="wipe-all" title="Warning clears the Database of all Articles/Comments" class="ml-2 badge badge-danger">
+    Erase All<i class="fas fa-trash p-2"></i>
+  </button>
 </nav>
