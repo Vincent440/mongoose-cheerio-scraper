@@ -25,7 +25,9 @@ $(() => {
       const newComment = {
         text: $('#comment-text').val().trim()
       }
-      $.post('/api/article/create/comment/' + articleId, newComment).then(() => $(location).attr('href', '/commented'))
+      $.post('/api/article/create/comment/' + articleId, newComment)
+        .then(() => $(location).attr('href', '/commented'))
+        .catch(error => console.log(error))
     }
   })
   // view all comments modal
