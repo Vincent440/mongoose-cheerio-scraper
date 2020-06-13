@@ -23,7 +23,7 @@
                                     {{#each comments}}
                                         <li>
                                             <p title="Click the trash icon to delete comment.">
-                                                <button type="button" data-commentid="{{id}}" data-articleid="{{../id}}" title="Delete comment" class="badge badge-danger delete-comment"><i class="fas fa-trash-alt"></i></button>
+                                                <button type="button" data-commentid="{{_id}}" data-articleid="{{../_id}}" title="Delete comment" class="badge badge-danger delete-comment"><i class="fas fa-trash-alt"></i></button>
                                                 {{text}}
                                             </p>
                                         </li>
@@ -34,7 +34,7 @@
 
                     </div>
                     <div class="btn-group p-1 m-1" role="group">
-                        <button type="button" class="btn btn-sm btn-success" title="Comment on {{title}}" data-toggle="modal" data-target="#comment-modal" data-title="{{title}}" data-articleid="{{id}}"><i class="fas fa-comments"> Comment</i></button>
+                        <button type="button" class="btn btn-sm btn-success" title="Comment on {{title}}" data-toggle="modal" data-target="#comment-modal" data-title="{{title}}" data-articleid="{{_id}}"><i class="fas fa-comments"> Comment</i></button>
                     </div>
                 </div>
             {{/each}}
