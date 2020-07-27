@@ -13,7 +13,7 @@
     "url": "git+https://github.com/Vincent440/mongoose-cheerio-scraper.git"
   },
   "author": "Vincent S Shury",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Vincent440/mongoose-cheerio-scraper/issues"
   },
@@ -22,8 +22,8 @@
     "axios": "^0.19.2",
     "cheerio": "^1.0.0-rc.3",
     "express": "^4.17.1",
-    "express-handlebars": "^4.0.4",
-    "mongoose": "^5.9.18",
+    "express-handlebars": "^5.1.0",
+    "mongoose": "^5.9.25",
     "morgan": "^1.10.0"
   },
   "devDependencies": {
