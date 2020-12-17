@@ -27,15 +27,11 @@ Comments are linked to the articles through an array of comments which stores al
 
 ---
 
-## By **Vincent Shury**
-#### _Full Stack Web Developer_
+## Author
 
----
-Thanks for viewing my repository.
+**Vincent Shury**, <small>Full-stack web developer</small>
 
-Contact me here: 
-* [Vincent Shury LinkedIn Profile](https://www.linkedin.com/in/vincent-shury/)
-
-View more of my work:
-* [Github Profile](https://github.com/Vincent440)
-* [Portfolio page](https://vincent440.github.io/) 
+- [vshury.com](https://vshury.com/) Portfolio
+- [GitHub](https://github.com/Vincent440) Profile
+- [![Linkedin Badge](https://img.shields.io/badge/-Vincent_Shury-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/vincent-shury/)](https://www.linkedin.com/in/VincentShury/)
+- [@VincentShury](https://twitter.com/VincentShury) Twitter
