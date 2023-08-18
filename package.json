@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/Vincent440/mongoose-cheerio-scraper#readme",
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^1.4.0",
     "cheerio": "^1.0.0-rc.3",
     "express": "^4.17.1",
     "express-handlebars": "^5.1.0",
@@ -27,11 +27,7 @@
     "morgan": "^1.10.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.4",
+    "nodemon": "^3.0.1",
     "standard": "^14.3.4"
-  },
-  "engines": {
-    "node": "^12",
-    "yarn": "^1.22"
   }
 }
