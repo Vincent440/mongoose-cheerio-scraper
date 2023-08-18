@@ -20,8 +20,8 @@ app.use(routes)
 
 // Connect to the MongoDB & Start the server
 database.once('open', () => {
-  console.log('MongoDB database connection succesful')
+  console.log('MongoDB database connection successful')
   app.listen(PORT, () => {
     console.log('Server listening on: http://localhost:' + PORT)
   })
-});
+})
