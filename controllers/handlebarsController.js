@@ -26,7 +26,7 @@ module.exports = {
     axios.get('https://www.freecodecamp.org/news/').then(response => {
       // console.log(response.data)
       const $ = cheerio.load(response.data)
-      $('div.post-feed article.post-card').each((i, element) => {
+      $('section.post-feed article.post-card').each((i, element) => {
         const result = {}
         result.title = $(element).find('h2.post-card-title a').text().trim()
         result.link = 'https://www.freecodecamp.org' + $(element).children('a').attr('href')
