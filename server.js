@@ -4,7 +4,7 @@ const logger = require('morgan')
 const mongoose = require('mongoose')
 const app = express()
 const PORT = process.env.PORT || 3000
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/techscraperDb'
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1/techscraperDb'
 const routes = require('./routes')
 
 app.use(logger('dev'))
