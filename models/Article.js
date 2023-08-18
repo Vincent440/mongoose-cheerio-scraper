@@ -1,7 +1,5 @@
 const mongoose = require('mongoose')
 
-mongoose.set('useCreateIndex', true)
-
 const ArticleSchema = new mongoose.Schema({
   title: {
     type: String,
