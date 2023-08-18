@@ -1,5 +1,5 @@
 const express = require('express')
-const expressHandlebars = require('express-handlebars')
+const { engine } = require('express-handlebars')
 const logger = require('morgan')
 const mongoose = require('mongoose')
 const app = express()
@@ -12,11 +12,13 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(express.static('public'))
 // Connect to the Mongo DB
-mongoose.connect(MONGODB_URI, { useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false }, error => {
+mongoose.connect(MONGODB_URI, { useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false }, (error) => {
   console.log(error || 'Mongoose connected to the DB successfully!')
 })
-app.engine('handlebars', expressHandlebars({ defaultLayout: 'main' }))
+
+app.engine('handlebars', engine())
 app.set('view engine', 'handlebars')
+app.set('views', './views')
 
 app.use(routes)
 
